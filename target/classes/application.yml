@@ -1,0 +1,40 @@
+
+
+server:
+  port: 8080
+spring:
+  #criar db na fatec antes de rodar
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb
+    username: root
+    password: 465112SQL_
+    driver-class-name:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+    show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: book.shifter.brazil@gmail.com
+    password: rmiduyrssggrjiep
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+cors:
+  origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000, http://localhost:8000}
+#A linha abaixo ativa debug no prompt
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+api:
+  security:
+    token:
+      #NÃO COMMITAR COM A LINHA ABAIXO PREENCHIDA
+      secret: ${JWT_SECRET:teste}
